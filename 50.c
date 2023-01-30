@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 // Swap two values
 void swap(int *a, int *b) {
@@ -9,15 +7,9 @@ void swap(int *a, int *b) {
   *b = temp;
 }
 
-// Get a random pivot index
-int getPivot(int low, int high) {
-  srand(time(NULL));
-  return low + rand() % (high - low + 1);
-}
-
 // Partition array around pivot
 int partition(int arr[], int low, int high) {
-  int pivotIndex = getPivot(low, high);
+  int pivotIndex = low;
   int pivotValue = arr[pivotIndex];
   swap(&arr[pivotIndex], &arr[high]);
   int i = low - 1;
@@ -49,3 +41,4 @@ int main() {
     printf("%d ", arr[i]);
   return 0;
 }
+
